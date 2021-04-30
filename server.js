@@ -10,4 +10,7 @@ db.once('open', () => console.log('DB connection established'))
 
 app.use(express.json())
 
+const productsRouter = require('./routes/products')
+app.use('products', productsRouter)
+
 app.listen(3000, () => console.log('server running at 3000'))
