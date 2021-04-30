@@ -13,7 +13,7 @@ router.get('/products', async (req, res)=>{
 })
 
 //route to user get a list of products filtered by ID
-router.get('/products/:id', (req, res)=>{
+router.get('/products/:id', getProduct, (req, res)=>{
 
 })
 
@@ -35,13 +35,24 @@ router.post('/products', async(req, res)=>{
 })
 
 //route to user update a product category
-router.patch('/products/:id', (req, res)=>{
+router.patch('/products/:id', getProduct, (req, res)=>{
 
 })
 
 //route to user delete a product from the base
-router.delete('/products/:id', (req, res)=>{
+router.delete('/products/:id', getProduct, (req, res, next)=>{
 
 })
+
+async function getProduct(req, res){
+    try{
+        product = await Product.findById(req.params.id)
+        if (product == null) return res.status(404).json({ message: 'product not found'})
+    }catch (error){
+        res.status(500).json({ message: error.message })
+    }
+    res.product = product
+    next()
+}
 
 module.exports = router
