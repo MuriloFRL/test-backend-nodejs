@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "4410bc56-2aee-47fc-a165-7790c44b53fb",
-		"name": "products-speedio",
+		"name": "products-test-nodejs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
